@@ -23,45 +23,31 @@ public class LabourStatisticsResponse {
     private List<String> message = null;
     @JsonProperty("Results")
     private Results results;
+    
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public int getResponseTime() {
+		return responseTime;
+	}
+	public void setResponseTime(int responseTime) {
+		this.responseTime = responseTime;
+	}
+	public List<String> getMessage() {
+		return message;
+	}
+	public void setMessage(List<String> message) {
+		this.message = message;
+	}
+	public Results getResults() {
+		return results;
+	}
+	public void setResults(Results results) {
+		this.results = results;
+	}
 
-    @JsonProperty("status")
-    public String getStatus() {
-        return status;
-    }
-
-    @JsonProperty("status")
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    @JsonProperty("responseTime")
-    public int getResponseTime() {
-        return responseTime;
-    }
-
-    @JsonProperty("responseTime")
-    public void setResponseTime(int responseTime) {
-        this.responseTime = responseTime;
-    }
-
-    @JsonProperty("message")
-    public List<String> getMessage() {
-        return message;
-    }
-
-    @JsonProperty("message")
-    public void setMessage(List<String> message) {
-        this.message = message;
-    }
-
-    @JsonProperty("Results")
-    public Results getResults() {
-        return results;
-    }
-
-    @JsonProperty("Results")
-    public void setResults(Results results) {
-        this.results = results;
-    }
-
+    
 }

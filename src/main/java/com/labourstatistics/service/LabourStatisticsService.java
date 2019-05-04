@@ -32,7 +32,7 @@ public class LabourStatisticsService {
 		try {
 			labourStatisticsResponseEntity = restTemplate.exchange(accountByIdURL, HttpMethod.POST, requestEntity, String.class);
 			stringResponse = labourStatisticsResponseEntity.getBody();
-			labourStatisticsResponse = objectMapper.readValue(stringResponse,LabourStatisticsResponse.class);
+			labourStatisticsResponse = objectMapper.readValue(stringResponse, LabourStatisticsResponse.class);
 		} catch (Exception e) {
 			System.out.println("Exception occured during the call  " + e.getMessage());
 		}
