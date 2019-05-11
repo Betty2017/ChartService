@@ -17,6 +17,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.labourstatistics.document.Chart;
 import com.labourstatistics.document.SeriesDB;
+
 import com.labourstatistics.model.LabourStatisticsResponse;
 import com.labourstatistics.model.SeriesIdRequest;
 import com.labourstatistics.service.LabourStatisticsService;
@@ -27,6 +28,10 @@ public class LabourStatisticsController {
 
 	@Autowired
 	LabourStatisticsService labourStatistics;
+	
+//	@Autowired
+//	FinalResponse finalResponse;
+	
 	@Autowired
 	MongoTemplate mongoTemplate;
 	
@@ -49,12 +54,17 @@ public class LabourStatisticsController {
 	
 	@RequestMapping(value = "/multipleSeries", method = RequestMethod.POST)
 	public LabourStatisticsResponse labourStatisticsMultipleSeries(@RequestBody int idFromUSer) throws JsonParseException, JsonMappingException, IOException{
+	//	public LabourStatisticsResponse labourStatisticsMultipleSeries(@RequestBody SeriesIdRequest seriesIdRequest) throws JsonParseException, JsonMappingException, IOException{
+	//	StoreData();
+	//	String chartData;  finalResponse.getChart();
+		
 		SeriesIdRequest seriesIdRequest = new SeriesIdRequest();
 		SeriesDB seriesDB = mongoTemplate.findById(idFromUSer, SeriesDB.class);
 		seriesIdRequest.setSeriesid(Arrays.asList(seriesDB.getSeriesId()));
 		ObjectMapper objectMapper = new ObjectMapper();
 		String response = labourStatistics.viewAccountDetailBybyAccountId(seriesIdRequest);
 		LabourStatisticsResponse labourStatisticsResponse = objectMapper.readValue(response, LabourStatisticsResponse.class);
+		System.out.println(labourStatisticsResponse);
 		return labourStatisticsResponse;
 	}
 	
