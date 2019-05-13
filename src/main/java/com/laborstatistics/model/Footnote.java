@@ -1,4 +1,4 @@
-package com.labourstatistics.model;
+package com.laborstatistics.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;

@@ -1,4 +1,4 @@
-package com.labourstatistics.model;
+package com.laborstatistics.model;
 
 
 

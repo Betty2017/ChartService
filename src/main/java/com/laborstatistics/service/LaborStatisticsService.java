@@ -1,4 +1,4 @@
-package com.labourstatistics.service;
+package com.laborstatistics.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -9,12 +9,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.labourstatistics.model.Example;
-import com.labourstatistics.model.LabourStatisticsResponse;
-import com.labourstatistics.model.SeriesIdRequest;
+import com.laborstatistics.model.LaborStatisticsResponse;
+import com.laborstatistics.model.SeriesIdRequest;
 
 @Service
-public class LabourStatisticsService {
+public class LaborStatisticsService {
 
 	@Autowired
 	private RestTemplate restTemplate;
@@ -22,7 +21,7 @@ public class LabourStatisticsService {
 	private ObjectMapper objectMapper;
 
 	public String viewAccountDetailBybyAccountId(SeriesIdRequest seriesIdRequest) {
-		LabourStatisticsResponse labourStatisticsResponse = new LabourStatisticsResponse();
+		LaborStatisticsResponse labourStatisticsResponse = new LaborStatisticsResponse();
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Content-Type", "application/json");
 		String accountByIdURL = "https://api.bls.gov/publicAPI/v2/timeseries/data/";
@@ -32,7 +31,7 @@ public class LabourStatisticsService {
 		try {
 			labourStatisticsResponseEntity = restTemplate.exchange(accountByIdURL, HttpMethod.POST, requestEntity, String.class);
 			stringResponse = labourStatisticsResponseEntity.getBody();
-			labourStatisticsResponse = objectMapper.readValue(stringResponse, LabourStatisticsResponse.class);
+			labourStatisticsResponse = objectMapper.readValue(stringResponse, LaborStatisticsResponse.class);
 		} catch (Exception e) {
 			System.out.println("Exception occured during the call  " + e.getMessage());
 		}

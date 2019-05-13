@@ -1,4 +1,4 @@
-package com.labourstatistics.model;
+package com.laborstatistics.model;
 
 
 import java.util.List;
@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
     "message",
     "Results"
 })*/
-public class LabourStatisticsResponse {
+public class LaborStatisticsResponse {
 
     @JsonProperty("status")
     private String status;

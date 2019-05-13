@@ -1,4 +1,4 @@
-package com.labourstatistics.document;
+package com.laborstatistics.document;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

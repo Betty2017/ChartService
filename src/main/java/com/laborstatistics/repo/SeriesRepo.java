@@ -1,8 +1,8 @@
-package com.labourstatistics.repo;
+package com.laborstatistics.repo;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.labourstatistics.model.Series;
+import com.laborstatistics.model.Series;
 
 public interface SeriesRepo extends MongoRepository<Series, Integer> {
 
